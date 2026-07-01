@@ -1,0 +1,11 @@
+{
+  "name": "beaver",
+  "displayName": "Beaver — System Design, Architecture & Specs",
+  "version": "0.1.0",
+  "description": "Skills for system design, software architecture, and specs — structure before code. Bundles designing-systems, architecting-software, and crafting-code.",
+  "author": { "name": "Davenson Lombard", "email": "lombard.davenson@gmail.com" },
+  "homepage": "https://github.com/dlombard/beaver",
+  "repository": "https://github.com/dlombard/beaver",
+  "license": "MIT",
+  "keywords": ["system-design", "architecture", "specs", "code-quality", "clean-architecture", "skills"]
+}

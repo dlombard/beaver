@@ -1,0 +1,4 @@
+interface:
+  display_name: "Crafting Code"
+  short_description: "Coding standards and quality gate"
+  default_prompt: "Use $crafting-code while writing or changing code."

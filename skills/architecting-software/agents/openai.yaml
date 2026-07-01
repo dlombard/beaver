@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecting Software"
+  short_description: "Clean Architecture standards and boundaries"
+  default_prompt: "Use $architecting-software to design or review this service structure."
