@@ -1,0 +1,21 @@
+{
+  "name": "beaver",
+  "interface": {
+    "displayName": "Beaver — System Design, Architecture & Specs"
+  },
+  "plugins": [
+    {
+      "name": "beaver",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE",
+        "products": ["CODEX"]
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

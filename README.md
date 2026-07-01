@@ -64,6 +64,10 @@ cp -R beaver/skills/* <your-repo>/.agents/skills/
 Tool-specific homes also work (`~/.codex/skills/`, `~/.gemini/skills/`,
 `~/.claude/skills/`); a common setup is one source of truth symlinked into the others.
 
+beaver is also packaged as a **Codex plugin** (`.codex-plugin/plugin.json`, listed in
+`.agents/plugins/marketplace.json`) for a marketplace-style install on Codex, in addition
+to the `.agents/skills/` drop-in above.
+
 *Skills directories evolve per tool — check each tool's current Agent Skills docs.*
 
 ## Examples & evaluations
