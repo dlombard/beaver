@@ -1,0 +1,4 @@
+interface:
+  display_name: "Designing Systems"
+  short_description: "Design or review the architecture of any system, product, or platform"
+  default_prompt: "Use $designing-systems to turn this idea into a high-level system design — works for software, data/ML/AI, IoT/edge/embedded, or cyber-physical/hardware systems — with a constraint register, building-block selections, component boundaries, interactions, data/ML flows, quality attributes, risks, SMART success criteria, and next-phase specification questions."

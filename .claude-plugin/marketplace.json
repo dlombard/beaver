@@ -1,0 +1,17 @@
+{
+  "name": "beaver",
+  "description": "Skills for system design, software architecture, and specs — structure before code.",
+  "owner": { "name": "Davenson Lombard", "email": "lombard.davenson@gmail.com" },
+  "plugins": [
+    {
+      "name": "beaver",
+      "displayName": "Beaver — System Design, Architecture & Specs",
+      "source": "./",
+      "description": "The full toolkit — designing-systems, architecting-software, and crafting-code. Structure before code.",
+      "version": "0.1.0",
+      "author": { "name": "Davenson Lombard" },
+      "homepage": "https://github.com/dlombard/beaver",
+      "keywords": ["system-design", "architecture", "specs", "code-quality"]
+    }
+  ]
+}

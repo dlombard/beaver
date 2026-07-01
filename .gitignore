@@ -1,0 +1,5 @@
+# Local evaluation harness + billed run outputs (dev/QA tooling, not part of the package)
+evals/
+
+# macOS
+.DS_Store
