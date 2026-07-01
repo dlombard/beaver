@@ -24,34 +24,47 @@ or stand alone.
 
 ## Install
 
-### Claude Code (marketplace)
+The skills follow the open `SKILL.md` standard, so they work across skill-aware tools.
+Pick whichever path fits your setup.
+
+### Claude Code — marketplace
 
 ```
 /plugin marketplace add dlombard/beaver
 /plugin install beaver@beaver
 ```
 
-That installs all three skills; each then triggers on its own by description. Update
-later with `/plugin marketplace update beaver`.
+Installs all three skills; each triggers on its own by description. Update later with
+`/plugin marketplace update beaver`.
 
-### Other tools (Codex CLI, Gemini CLI, Cursor, …)
+### Gemini CLI — extension
 
-The skills are standard `SKILL.md` folders, so they're portable. Clone and place the
-skill folder where your tool discovers skills:
+This repo is also a Gemini CLI extension (`gemini-extension.json`); Gemini
+auto-discovers the bundled `skills/`:
+
+```bash
+gemini extensions install https://github.com/dlombard/beaver
+```
+
+(Check `gemini extensions --help` for the current install syntax.)
+
+### Codex, Cursor & other tools — the `.agents/skills/` convention
+
+Most non-Claude tools read skills from **`.agents/skills/`**, an emerging cross-tool
+standard (Codex CLI and Gemini CLI both scan it; `.agents/skills/` takes precedence in
+Gemini). Just drop the skills there:
 
 ```bash
 git clone https://github.com/dlombard/beaver.git
-# copy any skill into your tool's skills directory, e.g. for Claude Code:
-cp -R beaver/skills/designing-systems ~/.claude/skills/
+cp -R beaver/skills/* ~/.agents/skills/          # user-level, shared across tools
+# …or per project:
+cp -R beaver/skills/* <your-repo>/.agents/skills/
 ```
 
-- **Codex CLI / Gemini CLI**: both read the `SKILL.md` standard — place the skill
-  folder in the tool's skills location (see each tool's Agent Skills docs).
-- **Cursor**: copy the skill folder in (manual placement), or reference it from
-  `.cursor/rules/`. Cursor also reads this repo's root `AGENTS.md`.
+Tool-specific homes also work (`~/.codex/skills/`, `~/.gemini/skills/`,
+`~/.claude/skills/`); a common setup is one source of truth symlinked into the others.
 
-*Exact install paths per tool shift release-to-release — check each tool's current
-"Agent Skills" docs for the directory.*
+*Skills directories evolve per tool — check each tool's current Agent Skills docs.*
 
 ## Examples & evaluations
 
