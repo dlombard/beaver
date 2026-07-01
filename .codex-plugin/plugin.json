@@ -1,0 +1,33 @@
+{
+  "name": "beaver",
+  "version": "0.1.0",
+  "description": "Skills for system design, software architecture, and specs — structure before code.",
+  "author": {
+    "name": "Davenson Lombard",
+    "email": "lombard.davenson@gmail.com",
+    "url": "https://github.com/dlombard"
+  },
+  "homepage": "https://github.com/dlombard/beaver",
+  "repository": "https://github.com/dlombard/beaver",
+  "license": "MIT",
+  "keywords": [
+    "system-design",
+    "architecture",
+    "specs",
+    "clean-architecture",
+    "code-quality",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Beaver",
+    "shortDescription": "System design, software architecture, and specs — structure before code.",
+    "longDescription": "Three skills: designing-systems (idea → decision-grade high-level design with a constraint register and building-block selections), architecting-software (Clean Architecture standard + existing-codebase dependency audit), and crafting-code (process gate, four quality pillars, and a simplicity ladder).",
+    "developerName": "Davenson Lombard",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "websiteURL": "https://github.com/dlombard/beaver",
+    "defaultPrompt": ["Design the system for this project."],
+    "screenshots": []
+  }
+}
