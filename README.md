@@ -15,12 +15,17 @@ Claude Code, Codex CLI, Gemini CLI, Cursor, and more.
 
 | Skill | Stage | What it does |
 |---|---|---|
+| [`defining-products`](skills/defining-products) | 🧭 Scout the valley | Idea → decision-grade PRD: users and problems, a prioritized feature list with stable requirement IDs, product-level acceptance criteria, success metrics, milestones, and explicit non-goals. |
 | [`designing-systems`](skills/designing-systems) | 🌊 Survey the current | Idea → decision-grade high-level design: constraint register, building-block selections, component inventory, data/ML flows, quality attributes, risks, SMART criteria, next-phase spec backlog. Works for software, data/ML/AI, IoT/edge, and cyber-physical systems. |
 | [`architecting-software`](skills/architecting-software) | 🪵 Raise the dam | Design or review a service against **Clean Architecture** — domain independent of frameworks, DB, and providers. |
+| [`specifying-features`](skills/specifying-features) | 📏 Mark the timber | Feature → implementable spec: scope, contract deltas, data changes, edge cases, executable acceptance criteria, and an explicit Definition of Done. |
 | [`crafting-code`](skills/crafting-code) | 🏠 Shape the lodge | A coding standard: a blocking process gate, four quality pillars, and the ponytail simplicity ladder. |
+| [`verifying-completion`](skills/verifying-completion) | 💧 Hold water | Build → completion report: every requirement traced to executed evidence, gaps named by failure mode, and an earned done / not-done verdict. |
 
-They chain — **designing-systems** → **architecting-software** → **crafting-code** —
-or stand alone.
+They chain — **defining-products** → **designing-systems** → **architecting-software**
+→ **specifying-features** → **crafting-code** → **verifying-completion** — or stand
+alone. Coupling is loose by design: each skill consumes upstream artifacts when it
+finds them in the project and works from the request alone when it doesn't.
 
 ## Install
 
@@ -34,7 +39,7 @@ Pick whichever path fits your setup.
 /plugin install beaver@beaver
 ```
 
-Installs all three skills; each triggers on its own by description. Update later with
+Installs all six skills; each triggers on its own by description. Update later with
 `/plugin marketplace update beaver`.
 
 ### Gemini CLI — extension

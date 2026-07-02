@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verifying Completion"
+  short_description: "Evidence-backed completion gate and traceability report"
+  default_prompt: "Use $verifying-completion to verify this build against its requirements — demonstrate every item with executed evidence, name every gap, and give a done / not-done verdict."

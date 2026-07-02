@@ -48,7 +48,7 @@ If the user does not specify a mode, use **design**.
 
 ## Design Workflow
 
-1. Extract project intent: users, problem, workflows, constraints, assumptions, non-goals, platform, integrations, data sensitivity, expected scale, and delivery milestone.
+1. Extract project intent: users, problem, workflows, constraints, assumptions, non-goals, platform, integrations, data sensitivity, expected scale, and delivery milestone. If the project already has a product definition (a PRD or product brief — check wherever it keeps docs), treat it as the source of truth for scope and trace its requirement IDs instead of re-deriving product scope.
 2. Build the **Constraint Register** before architecting (see `references/constraints-rubric.md`): walk the constraint taxonomy (scale/load, performance, availability/reliability, consistency, security/privacy/compliance, cost, environment, operability, delivery), do back-of-the-envelope capacity estimation where a decision depends on scale, and record each constraint as a measurable target or an explicit assumption / baseline-to-measure. Surface the conflicts to resolve (e.g. CAP/PACELC, latency vs. consistency). The architecture in the next step must be justified against this register.
 3. Produce the core artifacts:
    - Product Brief

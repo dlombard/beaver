@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specifying Features"
+  short_description: "Feature specs with executable acceptance criteria and a Definition of Done"
+  default_prompt: "Use $specifying-features to spec this feature — scope, contract deltas, data changes, edge cases, executable acceptance criteria, and an explicit Definition of Done."

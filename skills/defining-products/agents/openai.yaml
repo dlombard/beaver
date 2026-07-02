@@ -1,0 +1,4 @@
+interface:
+  display_name: "Defining Products"
+  short_description: "Turn a product idea into a decision-grade PRD"
+  default_prompt: "Use $defining-products to turn this idea into a PRD — users and problems, a prioritized feature list with stable requirement IDs, product-level acceptance criteria, measurable success metrics, release milestones, and explicit non-goals."
