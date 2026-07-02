@@ -1,0 +1,1 @@
+Here's our order service, in ./svc. It works, but it's getting hard to change and something about the structure feels off. Review the architecture and tell us what's wrong.

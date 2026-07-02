@@ -1,0 +1,1 @@
+Good. Show me the refactored place_order plus the interfaces you'd introduce for the payment gateway and the order repository — just those, don't re-explain the whole thing.

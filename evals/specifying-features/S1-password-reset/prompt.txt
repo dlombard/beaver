@@ -1,0 +1,1 @@
+Spec this feature for our task-manager web app: password reset by email. A user requests a reset link, receives an email, and sets a new password. There's no PRD — work from this and the repo.

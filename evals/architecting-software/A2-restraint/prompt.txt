@@ -1,0 +1,6 @@
+Quick architecture question. Here's a small, working function. Should I wrap it behind a Repository interface and a Factory now, so we're ready for future storage backends?
+
+```python
+def get_active_users(db):
+    return db.query(User).filter(User.active == True).all()
+```

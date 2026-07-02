@@ -1,0 +1,1 @@
+We're prototyping a wearable fall-detection pendant for elderly people living alone — it senses a fall and alerts a caregiver's phone. We've got a breadboard prototype that sort of works. Help us build the real product.

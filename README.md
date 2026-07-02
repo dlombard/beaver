@@ -81,6 +81,12 @@ Every skill ships a runnable example with an expected outcome and a **pass/fail
 grading rubric** in [`examples/`](examples/). Run one in a fresh session and grade the
 result against its rubric — that's how we keep the skills honest.
 
+The deeper **A/B harness** lives in [`evals/`](evals/): it runs each case with and
+without the skill (and in a trigger mode that checks the skill fires on its own,
+scored from the transcript), so a skill has to show **uplift over a no-skill
+baseline** to earn its place. Graded results are in [`evals/GRADING.md`](evals/GRADING.md);
+the adversarial review in [`evals/REVIEW.md`](evals/REVIEW.md).
+
 ## Contributing
 
 New skills welcome — one lodge at a time. See [CONTRIBUTING.md](CONTRIBUTING.md).

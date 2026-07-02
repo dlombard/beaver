@@ -1,0 +1,1 @@
+Using the crafting-code skill at LITE intensity: we want a configurable plugin system so users can register custom date-format handlers for our reporting tool. Implement it.

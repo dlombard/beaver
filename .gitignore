@@ -1,5 +1,8 @@
-# Local evaluation harness + billed run outputs (dev/QA tooling, not part of the package)
-evals/
+# Billed eval run outputs (local only — the harness, cases, and grading log are tracked)
+evals/*/*/out/
 
 # macOS
 .DS_Store
+
+# Python
+__pycache__/
