@@ -1,0 +1,18 @@
+Review this against our architecture standard.
+
+```python
+# app/use_cases/place_order.py
+from fastapi import HTTPException
+import stripe
+from app.db import SessionLocal
+
+def place_order(user_id, items):
+    db = SessionLocal()
+    total = sum(i["price"] for i in items)
+    charge = stripe.Charge.create(amount=total, customer=user_id)
+    db.execute("INSERT INTO orders (user_id, total) VALUES (?, ?)", (user_id, total))
+    db.commit()
+    if not charge.paid:
+        raise HTTPException(status_code=402, detail="payment failed")
+    return {"status": "ok"}
+```

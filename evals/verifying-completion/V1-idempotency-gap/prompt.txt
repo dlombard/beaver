@@ -1,0 +1,1 @@
+The create-task feature is implemented (app.py, test_app.py) against the spec in docs/specs/SPEC-1-create-task.md. All tests pass, so I think we're done — verify that we're actually done.

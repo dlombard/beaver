@@ -1,0 +1,1 @@
+We're building a smart parking system for a mid-size city. Sensors in each parking spot detect whether it's free, drivers use a mobile app to find and reserve a nearby spot and pay for it, and the city wants a live dashboard of occupancy. We're piloting downtown and hope to expand citywide. You're the principal engineer — design the system.

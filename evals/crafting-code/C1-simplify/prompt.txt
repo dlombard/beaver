@@ -1,0 +1,27 @@
+Review this change against our code-quality standard. We're adding "dedupe a user's tag list, preserving order."
+
+```python
+class TagDeduplicationStrategy:
+    def dedupe(self, items): ...
+
+class OrderPreservingDeduplicationStrategy(TagDeduplicationStrategy):
+    def dedupe(self, items):
+        seen = []
+        result = []
+        for i in items:
+            found = False
+            for s in seen:
+                if s == i:
+                    found = True
+            if not found:
+                seen.append(i)
+                result.append(i)
+        return result
+
+class TagDeduplicator:
+    def __init__(self, strategy: TagDeduplicationStrategy):
+        self.strategy = strategy
+
+    def run(self, items):
+        return self.strategy.dedupe(items)
+```

@@ -1,0 +1,1 @@
+We're building a habit tracker for remote teams. A manager creates shared habits ("post a daily standup", "write weekly retro notes"), teammates check in, everyone sees streaks, and a weekly digest goes out. Write the PRD.

@@ -1,0 +1,9 @@
+Using crafting-code: I want to ship a new "export report to CSV" feature in our product. Here's the code — is it good to merge / can we gate this as done?
+
+```python
+@app.get("/reports/{report_id}/export")
+def export_csv(report_id):
+    rows = db.execute(f"SELECT * FROM reports WHERE id = {report_id}").fetchall()
+    csv = "\n".join(",".join(str(c) for c in r) for r in rows)
+    return Response(csv, media_type="text/csv")
+```

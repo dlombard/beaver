@@ -1,0 +1,1 @@
+One change: the payment and billing part must be strongly consistent and PCI-compliant — I think you had it as eventually consistent. Revise just that part of the design and anything it touches; don't redo the whole thing.

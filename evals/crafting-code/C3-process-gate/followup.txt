@@ -1,0 +1,1 @@
+Understood. The approved spec is docs/specs/0007-csv-export.md — it scopes the endpoint, the columns, auth, and the CSV format. Now gate it as done against the standard.
