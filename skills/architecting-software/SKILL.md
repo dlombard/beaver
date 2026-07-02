@@ -17,6 +17,16 @@ Source dependencies point inward only. Business rules never import a framework, 
 
 The API and the UI are delivery mechanisms, not the core — every use case is also reachable from curl/CLI.
 
+## Designing a service (outputs)
+
+When designing (not reviewing), deliver three artifacts:
+
+1. **Source layout** that screams the domain — top-level modules named for the business (`orders/`, `billing/`), each annotated with its layer.
+2. **Ports table** — one row per volatile dependency: port (interface) · adapter · the volatility it isolates. Only real, present variation (see Boundaries vs. minimalism).
+3. **ADR stubs** for each boundary choice, in the repo's decision log (default `docs/adr/`).
+
+If the project has an upstream high-level design (component boundaries, constraints — check wherever it keeps docs), consume it; none is required — derive the domain from the request and label assumptions.
+
 ## Checks (findings)
 
 - **[depend]** Core/use-case code imports a framework, DB, or provider SDK. Invert behind an interface (DIP).

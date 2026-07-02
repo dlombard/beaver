@@ -1,6 +1,6 @@
 {
   "name": "beaver",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Skills for system design, software architecture, and specs — structure before code.",
   "author": {
     "name": "Davenson Lombard",
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "Beaver",
     "shortDescription": "System design, software architecture, and specs — structure before code.",
-    "longDescription": "Three skills: designing-systems (idea → decision-grade high-level design with a constraint register and building-block selections), architecting-software (Clean Architecture standard + existing-codebase dependency audit), and crafting-code (process gate, four quality pillars, and a simplicity ladder).",
+    "longDescription": "Six skills: defining-products (idea → PRD with a prioritized feature list and stable requirement IDs), designing-systems (idea → decision-grade high-level design with a constraint register and building-block selections), architecting-software (Clean Architecture standard + existing-codebase dependency audit), specifying-features (feature → spec with executable acceptance criteria and a Definition of Done), crafting-code (process gate, four quality pillars, and a simplicity ladder), and verifying-completion (evidence-backed completion gate and traceability report).",
     "developerName": "Davenson Lombard",
     "category": "Developer Tools",
     "capabilities": ["Interactive", "Read", "Write"],

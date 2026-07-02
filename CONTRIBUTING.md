@@ -54,14 +54,18 @@ category, so the collection composes as a pipeline:
 
 | Category | Location | Produced by |
 |---|---|---|
+| Product definition (PRD) | `docs/product/` | `defining-products` |
 | System design artifacts | `docs/design/` | `designing-systems` |
 | Architecture Decision Records | `docs/adr/` | `architecting-software`, `crafting-code` |
-| Specs | `docs/specs/` | `crafting-code` |
+| Specs | `docs/specs/` | `specifying-features` (consumed by `crafting-code`'s `[spec]` gate) |
 | API contracts (OpenAPI) | `docs/api/` | `crafting-code` |
+| Verification reports | `docs/verification/` | `verifying-completion` |
 
 If the target repo already uses a different documentation layout, **conform to it**
 instead of imposing this one. A new skill that emits documents should follow this
-convention (add its category above).
+convention (add its category above). These locations are **defaults, not contracts**:
+a skill that consumes another skill's artifact must discover it in the project (or
+work without it) — never hardcode the path or require the artifact to exist.
 
 ## Licensing
 

@@ -8,12 +8,18 @@ Codex CLI, Gemini CLI, Cursor (manual placement), and other skill-aware tools.
 
 | Skill | Use it when… |
 |---|---|
+| **defining-products** | Turning an idea into a PRD — users and problems, a prioritized feature list with stable requirement IDs, product-level acceptance criteria, success metrics, milestones, and non-goals. |
 | **designing-systems** | Turning an idea into a high-level system design/architecture — any domain (software, data/ML/AI, IoT/edge, cyber-physical). Produces a constraint register, building-block selections, component inventory, quality attributes, risks, and a next-phase spec backlog. |
 | **architecting-software** | Designing or reviewing a service's structure against Clean Architecture — keeping the domain independent of frameworks, DB, and providers. |
+| **specifying-features** | Turning a feature into an implementable spec — scope, contract deltas, edge cases, executable acceptance criteria, and an explicit Definition of Done. |
 | **crafting-code** | Writing or changing code to a quality standard — a blocking process gate, four quality pillars, and a simplicity ladder. |
+| **verifying-completion** | Verifying a build against its requirements with executed evidence — a traceability report, gaps named by failure mode, and a done / not-done verdict. |
 
-A natural pipeline: **designing-systems** (the map) → **architecting-software**
-(the structure) → **crafting-code** (the craft).
+A natural pipeline: **defining-products** (the what) → **designing-systems** (the map)
+→ **architecting-software** (the structure) → **specifying-features** (the contract)
+→ **crafting-code** (the craft) → **verifying-completion** (the proof). Coupling is
+loose — each skill consumes upstream artifacts when present in the project and stands
+alone when they aren't.
 
 ## Where the skills live
 

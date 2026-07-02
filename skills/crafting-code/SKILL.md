@@ -22,10 +22,11 @@ Default **full**. Never relaxes the gate, error handling, security, or verificat
 - **[spec]** A *product feature* needs an approved spec in `docs/specs/` that scopes the change. No spec ⇒ no feature. Exempt (no spec, but no new product-feature behavior): bug fixes, refactors, chores, docs, tests, agent skills/tooling, repo scaffolding/config.
 - **[verify]** Every Definition-of-Done item is demonstrated — tests green, lint/types clean, manual steps done.
 - **[contract]** An API change ships its OpenAPI doc (`docs/api/`) in the same diff, and the endpoint is curl-exercisable.
+- **[sync]** A change that invalidates a design doc, spec, or API contract updates that document in the same diff — stale docs are a defect.
 - **[reverse]** A hard-to-reverse (one-way-door) decision has an ADR in `docs/adr/`. Easy to undo → just code it.
 - **[repeat]** Backend actions are runnable and re-runnable from curl/CLI, deterministic, idempotent where they should be. The app relies only on what the API exposes.
 - **[secret]** No secrets, keys, signing material, or media added.
-- **[commit]** The commit message references the spec.
+- **[commit]** The commit message references the spec — and the requirement IDs it implements, when the project tracks them.
 
 ## Four pillars (findings)
 
