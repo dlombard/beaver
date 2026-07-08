@@ -17,23 +17,29 @@ Select one mode:
 
 If the user does not specify a mode, use **design**.
 
+**Applying review feedback.** After presenting a design, the user will often review it and reply with corrections rather than a formal review request. A small, localized correction — a wrong number, a wrong provider/API claim, a decision the user makes explicitly ("I choose X") — can be applied directly to the affected artifact(s) without re-entering this skill; re-verify the corrected fact per directive 3 and ripple it to every artifact that depended on it. Re-enter in **refine** mode instead when the change reopens a constraint or building-block trade-off, ripples across the architecture rather than a local fix, or changes scope — i.e. when it needs the same rigor as the original design pass, not just an edit.
+
 **Ask clarifying questions** only when missing information materially changes architecture, scope, risk, security, data design, quality attributes, or downstream specification work. Ask at most 5. If the user wants momentum, proceed with explicit assumptions and mark them as assumptions. **Never answer a design request with questions alone** — always deliver a first-pass **Constraint Register** (unknowns filled by labeled assumptions) and an initial architecture draft *alongside* any questions, so the reply is a usable design, not a questionnaire.
 
 ### Core Directives
 
 1. **Elicit constraints before architecting.** Drive the brief to an explicit **Constraint Register** (`references/constraints-rubric.md`): walk the taxonomy and record each load-bearing constraint (latency budget, scale, availability, consistency, cost, compliance, platform limits) as a measurable target or an explicit assumption / baseline-to-measure. Briefs state *what* to build but rarely the constraints that decide the design ("a Netflix-like app" omits "recommendations < 100 ms p95 for 50M users").
 2. **Select building blocks deliberately.** Assemble the architecture from infrastructure primitives across layers — compute/runtime, traffic, storage/data, caching, async/event-driven, communication, coordination, resilience, observability (`references/building-blocks.md`). For each block the system needs, record the alternative considered and the constraint it serves. For any **heavyweight block** (Kafka/streaming, Kubernetes, a new datastore, microservices), cite a **back-of-the-envelope number** (peak QPS, msg/s, data volume, concurrency) that justifies **accepting or rejecting** it — never accept or reject one on vibes.
-3. **Make the model first-class for AI/LLM systems.** When an LLM, generative model, embeddings, or an AI assistant/agent/copilot is part of the product, treat retrieval/grounding, context budget, generation orchestration, embeddings/vector storage, and the assistant's role(s) as first-class components (`references/ai-system-design.md`).
-4. **Define only verifiable goals.** A valid goal names the behavior/outcome, the affected user/component/workflow, the measurable evidence, the milestone or design gate, and the validation method. Mark unknown numbers as assumption or baseline-to-measure.
-5. **Conform to the host project's process.** Check for project docs (`CLAUDE.md`, `AGENTS.md`, an existing `docs/` layout) and project-specific skills, and write into that structure rather than imposing a generic one. Absent an existing layout, write the artifact set to `docs/design/` (the collection standard — decisions go to `docs/adr/`, specs to `docs/specs/`, API contracts to `docs/api/`).
+3. **Verify external facts before committing to them.** Any load-bearing claim about a specific external provider, product, or tool — an API limit, a feature's availability (e.g. "MongoDB Community supports vector search"), a current model/version name, pricing, or a compliance certification — must be checked against current official documentation (web research) before it appears in the Constraint Register, an ADR, or a building-block justification. Training memory is a fine starting hypothesis for which facts to check — it just isn't a substitute for checking them. Cite the source and the date checked (e.g. "verified 2026-07-07: <url>"). A fact that is genuinely undocumented gets labeled "not documented as of `<date>`" — distinct from "not checked."
+4. **Make the model first-class for AI/LLM systems.** When an LLM, generative model, embeddings, or an AI assistant/agent/copilot is part of the product, treat retrieval/grounding, context budget, generation orchestration, embeddings/vector storage, and the assistant's role(s) as first-class components (`references/ai-system-design.md`).
+5. **Define only verifiable goals.** A valid goal names the behavior/outcome, the affected user/component/workflow, the measurable evidence, the milestone or design gate, and the validation method. Mark unknown numbers as assumption or baseline-to-measure.
+6. **Conform to the host project's process.** Check for project docs (`CLAUDE.md`, `AGENTS.md`, an existing `docs/` layout) and project-specific skills, and write into that structure rather than imposing a generic one. Absent an existing layout, write the artifact set to `docs/design/` (the collection standard — decisions go to `docs/adr/`, specs to `docs/specs/`, API contracts to `docs/api/`).
+7. **Hand off feature specs.** If the request also asks for feature specs (not just the Next-Phase Specification Backlog), do not draft them here. Once the design artifacts and backlog exist, invoke `beaver:specifying-features` once per feature slice to produce each spec — that skill owns scope/non-goals, edge cases, executable acceptance criteria, and the approval gate, and duplicating that structure here drifts out of sync with it.
 
 ### Do NOT
 
 - **Do not** commit to an architecture before the Constraint Register exists, or leave any load-bearing constraint silently undefined.
 - **Do not** add a heavyweight block (Kafka, Kubernetes, microservices) without a constraint that justifies its complexity — or omit one a constraint demands (caching/CDN, a queue, replication).
+- **Do not** state a provider/tool capability, limit, or version from training knowledge as though it were verified — check it against official docs or label it an assumption to verify.
 - **Do not** draw the LLM as a single "transform" stage in an AI system.
 - **Do not** invent vanity goals or fabricate numeric precision; a goal that cannot be tied to a user, business, operational, security, reliability, or delivery outcome is invalid.
 - **Do not** silently substitute a generic artifact set when a project-specific skill or process should apply — surface it instead.
+- **Do not** draft full feature specs (edge cases, executable acceptance criteria, Definition of Done) inline — produce the backlog and hand off to `beaver:specifying-features` per directive 7.
 
 ## Reference Loading
 
@@ -49,7 +55,7 @@ If the user does not specify a mode, use **design**.
 ## Design Workflow
 
 1. Extract project intent: users, problem, workflows, constraints, assumptions, non-goals, platform, integrations, data sensitivity, expected scale, and delivery milestone. If the project already has a product definition (a PRD or product brief — check wherever it keeps docs), treat it as the source of truth for scope and trace its requirement IDs instead of re-deriving product scope.
-2. Build the **Constraint Register** before architecting (see `references/constraints-rubric.md`): walk the constraint taxonomy (scale/load, performance, availability/reliability, consistency, security/privacy/compliance, cost, environment, operability, delivery), do back-of-the-envelope capacity estimation where a decision depends on scale, and record each constraint as a measurable target or an explicit assumption / baseline-to-measure. Surface the conflicts to resolve (e.g. CAP/PACELC, latency vs. consistency). The architecture in the next step must be justified against this register.
+2. Build the **Constraint Register** before architecting (see `references/constraints-rubric.md`): walk the constraint taxonomy (scale/load, performance, availability/reliability, consistency, security/privacy/compliance, cost, environment, operability, delivery), do back-of-the-envelope capacity estimation where a decision depends on scale, and record each constraint as a measurable target or an explicit assumption / baseline-to-measure. Surface the conflicts to resolve (e.g. CAP/PACELC, latency vs. consistency). The architecture in the next step must be justified against this register. Before a constraint or building-block choice hinges on a specific provider/tool's documented behavior, verify it per directive 3 rather than asserting it.
 3. Produce the core artifacts:
    - Product Brief
    - Requirements Summary (including the Constraint Register)
@@ -64,7 +70,7 @@ If the user does not specify a mode, use **design**.
 5. Define components by ownership boundaries, not by implementation convenience. In `component-inventory.md`, start with a compact list or table of all components, then add an H2 detail section for each critical-path and highest-criticality component (summarize the rest in the table; full per-component specs are next-phase). For each detailed component, specify purpose, responsibilities, inputs, outputs, owned data, dependencies, failure modes, success criteria, and open specification questions.
 6. Add performance budgets only where meaningful. Prefer practical targets such as p95 latency, throughput, concurrency, job completion windows, data freshness, cold-start time, or recovery time. Avoid fake precision.
 7. Add production-readiness requirements for reliability, security, observability, deployment, rollback, data handling, operations, and documentation.
-8. Identify what must be specified later: detailed SRD sections, interface contracts, data schemas, component specs, diagrams, operational runbooks, validation strategy, and delivery milestones.
+8. Identify what must be specified later: detailed SRD sections, interface contracts, data schemas, component specs, diagrams, operational runbooks, validation strategy, and delivery milestones. If the request wants any of these produced now rather than backlogged, hand off per directive 7 — `beaver:specifying-features` for feature specs — instead of drafting them inline.
 9. Run a review pass against the produced artifact. Fix clear gaps before presenting the final answer. If gaps remain because information is unknown, list them under Open Questions.
 
 ## Review Workflow
@@ -84,6 +90,7 @@ Check for:
 - missing performance budgets where latency, throughput, freshness, or recovery matters
 - missing security, privacy, reliability, observability, or deployment requirements
 - for AI/LLM systems: LLM treated as a single stage; no retrieval/grounding layer; ignored context budget / long-context handling; missing embeddings or vector index in storage; no interactive loop, agentic surface, citations, or evaluation story (see `references/ai-system-design.md`)
+- load-bearing provider/tool claims (API limits, feature availability, model/version names) stated without a cited source and verification date
 - missing handoff items for the later specification phase
 
 For each finding, state the issue, why it matters, and the specific change needed.
