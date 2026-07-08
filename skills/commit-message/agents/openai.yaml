@@ -1,0 +1,4 @@
+interface:
+  display_name: "Commit Message"
+  short_description: "Generate helpful commit messages"
+  default_prompt: "Use $commit-message to generate a commit message for these changes."
