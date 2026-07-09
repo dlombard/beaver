@@ -29,7 +29,7 @@ If the project has an upstream high-level design (component boundaries, constrai
 
 ## Checks (findings)
 
-- **[depend]** Core/use-case code imports a framework, DB, or provider SDK. Invert behind an interface (DIP).
+- **[depend]** Core/use-case code imports a framework, DB, or provider SDK. Invert behind an interface (DIP). This check *is* SOLID's **D** at the boundary level; the code-level letters (SRP/OCP/LSP/ISP) live in `crafting-code`.
 - **[boundary]** A volatile external (third-party API, LLM, storage) is used directly. Put it behind an interface + adapter; the choice is an ADR (`docs/adr/`).
 - **[cycle]** Modules depend on each other cyclically. Break it — keep dependencies acyclic.
 - **[testable]** A use case can't be tested without infra running. Move the detail behind a boundary.

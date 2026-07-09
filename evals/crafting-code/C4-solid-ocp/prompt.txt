@@ -1,0 +1,13 @@
+Review this change against our code-quality standard. We're adding a third notification channel, `push`, to the dispatcher — same as we did for `sms` last month.
+
+```python
+def send(channel, user, message):
+    if channel == "email":
+        smtp.send(user.email, message)
+    elif channel == "sms":
+        twilio.send(user.phone, message)
+    elif channel == "push":            # the change: a third branch
+        fcm.send(user.device_token, message)
+    else:
+        raise ValueError(f"unknown channel {channel}")
+```
