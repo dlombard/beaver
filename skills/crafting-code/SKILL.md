@@ -2,7 +2,8 @@
 name: crafting-code
 description: >-
   A coding standard for what good code is. Apply while writing or changing any
-  code. Defines the blocking process gate, the four quality pillars, and the
+  code. Defines the blocking process gate, the four quality pillars, SOLID
+  triggers (SRP/OCP/LSP/ISP/DIP — when to apply each, not definitions), and the
   embedded ponytail simplicity ladder. Intensity: lite | full | ultra (simplicity
   pillar only).
 ---
@@ -47,6 +48,16 @@ Default **full**. Never relaxes the gate, error handling, security, or verificat
 Deletion over addition; boring over clever. Mark deliberate shortcuts `// debt: <ceiling> — upgrade when <trigger>`.
 
 **Never minimized away:** input/trust-boundary validation, data-loss-preventing error handling, security, accessibility, explicitly requested features.
+
+## SOLID — triggers, not definitions
+
+You know the five principles; these are the moments to reach for each. Apply only against *real, present* variation — never speculatively (defer to `[yagni]`; an unused abstraction is a defect, not craft). SOLID justifies structure only where the minimalism ladder above already agrees code is warranted.
+
+- **[srp]** See the Craft pillar — one reason to change; split when naming it needs "and".
+- **[ocp]** Editing the *same* if/switch chain a **third** time to add a case ⇒ make the variant a plugged-in type, not another branch. Not before the third — two cases are a conditional, not a hierarchy.
+- **[lsp]** A subtype/implementation that throws on, no-ops, or narrows a method its base promises is the wrong hierarchy ⇒ prefer composition or a smaller interface. Strengthening preconditions or weakening postconditions in an override is the smell.
+- **[isp]** An implementer forced to stub methods it doesn't use, or a caller pulling in a fat interface for one method ⇒ split the interface by client need.
+- **[dip]** Depend on an interface you own, not a concrete framework/DB/SDK. Covered in depth by `architecting-software` `[depend]`/`[boundary]` — invert volatile deps behind a port; boundary choices get an ADR there.
 
 ## Attribution
 
