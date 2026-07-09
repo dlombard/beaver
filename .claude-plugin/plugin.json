@@ -1,7 +1,7 @@
 {
   "name": "beaver",
   "displayName": "Beaver — System Design, Architecture & Specs",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Skills for product definition, system design, software architecture, specs, and verification — structure before code. Bundles defining-products, designing-systems, architecting-software, specifying-features, crafting-code, and verifying-completion.",
   "author": { "name": "Davenson Lombard", "email": "lombard.davenson@gmail.com" },
   "homepage": "https://github.com/dlombard/beaver",

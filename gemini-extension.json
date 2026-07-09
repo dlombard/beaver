@@ -1,6 +1,6 @@
 {
   "name": "beaver",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Skills for system design, software architecture, and specs — structure before code.",
   "contextFileName": "AGENTS.md"
 }

@@ -8,7 +8,7 @@
       "displayName": "Beaver — System Design, Architecture & Specs",
       "source": "./",
       "description": "The full toolkit — defining-products, designing-systems, architecting-software, specifying-features, crafting-code, and verifying-completion. Structure before code, evidence before done.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "author": { "name": "Davenson Lombard" },
       "homepage": "https://github.com/dlombard/beaver",
       "keywords": ["system-design", "architecture", "specs", "code-quality"]
