@@ -50,6 +50,8 @@ Review a spec as an implementability-and-verifiability gate. Lead with findings,
 
 - scope an implementer could read two ways
 - a criterion with no executable check or no expected result
+- a criterion or Definition-of-Done item requiring a live system without naming its
+  target environment
 - missing unhappy paths (walk directive 4's list)
 - an API/interface change with no contract delta
 - Definition of Done missing, or containing undemonstrable items

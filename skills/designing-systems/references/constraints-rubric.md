@@ -75,6 +75,18 @@ or *exclude*, never an accidental omission.
 **Environment & platform constraints**
 - Device limits: memory, battery, offline/local-first, bandwidth caps.
 - On-prem/cloud/region constraints, existing infrastructure commitments.
+- Environment topology (required for every system): define the dev, staging, and
+  production environments the system will run in. Default assumption when the user
+  has not specified them: dev is local (developer machine, local containers/fakes),
+  staging mirrors production on shared infrastructure, production is the live
+  user-facing target. State the defaults as labeled assumptions and confirm them with
+  the user — deviating from or committing to these defaults is always worth one of
+  the question budget.
+- Environment inventory (when existing infrastructure is in play): which of the
+  environments above each existing cluster/database/credential source (.env files,
+  deploy manifests) maps to, and which the current work may mutate. An external
+  system whose environment identity is unknown is a question for the user — never
+  silently assume production (or dev).
 
 **Operability & maintainability**
 - Observability expectations (metrics/logs/traces), deploy/rollback, team size/skills.

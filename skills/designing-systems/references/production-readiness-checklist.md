@@ -43,7 +43,10 @@ Use this checklist to add only relevant production requirements.
 
 - build, test, lint, and migration checks
 - deployment and rollback path
-- environment configuration
+- environment topology defined (dev/staging/production; dev defaulting to local
+  unless the user says otherwise), each config/credential source mapped to one
+  environment, and the rollout's target environment named — "production blocked"
+  is only a valid claim once production is identified
 - feature flags when rollout risk is high
 - runbook for common incidents
 - ownership and escalation path when relevant
