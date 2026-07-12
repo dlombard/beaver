@@ -80,6 +80,10 @@ Key trade-offs to resolve: CAP choice under partition; PACELC latency-vs-consist
 ## High-Level System Design
 
 - **Architecture Summary**:
+- **Environments**: dev / staging / production — what each runs on (dev defaults to
+  local), which config/credentials map to each, and which one this design's rollout
+  targets. Status per environment: given / assumption confirmed / assumption pending
+  user confirmation.
 - **Component Map**:
 - **Building-Block Selections** (see `references/building-blocks.md`): use the table below
 - **Data Flow**:

@@ -15,7 +15,7 @@ This skill is an evidence gate, not a code review. The verdict is earned by demo
 1. **No evidence, no pass.** Every checklist item's verdict is backed by executed evidence: the command run and its captured output, the test run, the observed behavior. "The code appears to handle this" is a gap, not a pass.
 2. **Assemble the checklist before verifying anything.** Gather requirements from wherever they live — a PRD, feature specs, Definition-of-Done lists, design success criteria, README claims, the conversation itself. Don't assume locations or formats. If no written requirements exist, reconstruct the checklist from the original request and label it `reconstructed`.
 3. **Completeness before correctness.** First diff the checklist against what exists — a missing feature is a finding even when everything that was built works perfectly. Then verify what exists.
-4. **Name the failure mode.** Every non-pass is one of: **missing** (not implemented) · **broken** (implemented, fails its check) · **unverifiable** (no demonstrable check exists — itself a finding against the spec) · **blocked** (needs environment, credentials, or access not available).
+4. **Name the failure mode.** Every non-pass is one of: **missing** (not implemented) · **broken** (implemented, fails its check) · **unverifiable** (no demonstrable check exists — itself a finding against the spec) · **blocked** (needs environment, credentials, or access not available). A block whose only missing input is an answer the user can give — e.g. whether a target cluster is dev or prod — is not yet a block: ask the question before finalizing the report, and record the answer. Any assumption about an environment's identity that drives a verdict is labeled in the report as an assumption.
 5. **Report, don't repair.** Fixing findings is out of scope unless the user asks. Findings are ordered by severity, each with what would close it.
 
 ### Do NOT
@@ -24,6 +24,7 @@ This skill is an evidence gate, not a code review. The verdict is earned by demo
 - **Do not** substitute code reading for execution when execution is possible; when it truly isn't, mark the item `inspection` and say why.
 - **Do not** shrink the checklist to what was implemented — the checklist comes from the requirements, not from the code.
 - **Do not** hide unverifiable or blocked items to make the verdict cleaner.
+- **Do not** silently downgrade the verification scope (e.g. to read-only) because of an unresolved environment or risk question — surface the question at the moment the downgrade decision is made, not in the final report.
 - **Do not** drift into style, naming, or architecture review — other standards own those.
 
 ## Verification Workflow

@@ -52,6 +52,11 @@ One line each — cover or explicitly exclude every one:
 
 Every row executable — a check plus its expected result.
 
+Name the execution environment for the checks (local/fakes, dev, staging, prod). A
+criterion or Definition-of-Done item that needs a live system names which
+environment it runs against; if that is unknown, it goes under Open Questions — it
+cannot be silently deferred.
+
 | ID | Given / When / Then | Check (command, test name, or walkthrough step) | Expected result |
 | --- | --- | --- | --- |
 | AC-1 |  |  |  |
