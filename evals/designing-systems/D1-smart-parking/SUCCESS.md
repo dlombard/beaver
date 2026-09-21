@@ -12,9 +12,11 @@ hidden constraints, and the follow-up gets a broad rewrite rather than a scoped 
 ## Treatment success criteria
 
 **Turn 1 — Must:**
-1. Triggers (in `trigger` mode) / is used, and produces the artifact set (ideally in
-   `docs/design/`): product brief, **constraint register**, architecture with a
-   **building-block table**, component inventory, risks.
+1. Triggers (in `trigger` mode) / is used, and produces the **full** artifact set
+   (ideally in `docs/design/`): product brief (no PRD exists), **constraint register**,
+   **SRD seed** (`SYS-n` shalls + external interfaces + qualification approach),
+   architecture with a **building-block table**, component inventory, risks, and a
+   next-phase backlog with **named SRD-section rows** (not a single "write the SRD").
 2. Elicits or labels the hidden constraints: real-time occupancy/availability latency,
    **sensor connectivity/power** (IoT), **payment consistency**, and the **pilot→citywide
    scale ambiguity** (asks or labels assumptions — doesn't silently pick a scale).
@@ -26,12 +28,14 @@ hidden constraints, and the follow-up gets a broad rewrite rather than a scoped 
 **Turn 2 (follow-up) — Must:**
 5. Revises **only the payment/billing element** (→ strongly consistent + PCI: tokenized
    PANs, CP store, isolated scope) and the specific things it touches (e.g. the
-   constraint-register row, the relevant component), **without rewriting the whole
-   design**. Demonstrates it can locate and edit one element.
+   constraint-register row, the relevant component, the matching `SYS-n` / SRD-backlog
+   row) **without rewriting the whole design**. Demonstrates it can locate and edit one
+   element.
 
-**Failure signals:** no constraint register; misses the scale ambiguity; generic CRUD
-stack; treats all data as one consistency class; on the follow-up, regenerates the
-entire design or ignores PCI.
+**Failure signals:** no constraint register; no SRD seed; backlog is a blank "Full SRD
+section"; misses the scale ambiguity; generic CRUD stack; treats all data as one
+consistency class; writes a full SRD or a feature spec; on the follow-up, regenerates
+the entire design or ignores PCI.
 
 **Uplift check:** did baseline already produce a constraint register + consistency
 model + scoped revision? If yes, the skill added little here; if no, treatment should.

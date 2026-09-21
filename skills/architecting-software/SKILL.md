@@ -25,7 +25,7 @@ When designing (not reviewing), deliver three artifacts:
 2. **Ports table** — one row per volatile dependency: port (interface) · adapter · the volatility it isolates. Only real, present variation (see Boundaries vs. minimalism).
 3. **ADR stubs** for each boundary choice, in the repo's decision log (default `docs/adr/`).
 
-If the project has an upstream high-level design (component boundaries, constraints — check wherever it keeps docs), consume it; none is required — derive the domain from the request and label assumptions.
+If the project has an upstream high-level design (component boundaries, constraints, SRD seed — check wherever it keeps docs), consume it; none is required — derive the domain from the request and label assumptions.
 
 ## Checks (findings)
 

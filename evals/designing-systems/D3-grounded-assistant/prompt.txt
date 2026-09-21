@@ -1,0 +1,1 @@
+We're adding an AI support copilot to our SaaS. It answers questions from our published help center and from the customer's own tickets, and it must cite the passage it used. Support agents can also ask it to draft a reply the agent then sends. You're the principal engineer — design the system.

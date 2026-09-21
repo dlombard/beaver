@@ -127,7 +127,8 @@ category, so the collection composes as a pipeline:
 | Category | Location | Produced by |
 |---|---|---|
 | Product definition (PRD) | `docs/product/` | `defining-products` |
-| System design artifacts | `docs/design/` | `designing-systems` |
+| System design artifacts | `docs/design/` | `designing-systems` (includes the **SRD seed** in the requirements summary) |
+| System Requirements Document (full SRD) | `docs/srd/` | Next-phase; **seeded** by `designing-systems`, not written by any skill in this collection |
 | Architecture Decision Records | `docs/adr/` | `architecting-software`, `crafting-code` |
 | Specs | `docs/specs/` | `specifying-features` (consumed by `crafting-code`'s `[spec]` gate) |
 | API contracts (OpenAPI) | `docs/api/` | `crafting-code` |

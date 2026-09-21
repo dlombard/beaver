@@ -9,7 +9,7 @@ Codex CLI, Gemini CLI, Cursor (manual placement), and other skill-aware tools.
 | Skill | Use it when… |
 |---|---|
 | **defining-products** | Turning an idea into a PRD — users and problems, a prioritized feature list with stable requirement IDs, product-level acceptance criteria, success metrics, milestones, and non-goals. |
-| **designing-systems** | Turning an idea into a high-level system design/architecture — any domain (software, data/ML/AI, IoT/edge, cyber-physical). Produces a constraint register, building-block selections, component inventory, quality attributes, risks, and a next-phase spec backlog. |
+| **designing-systems** | Turning an idea into a high-level system design/architecture — any domain (software, data/ML/AI, IoT/edge, cyber-physical). Produces a constraint register, building-block selections, **SRD seed**, component inventory, quality attributes, risks, and a next-phase spec/SRD backlog. Intensity lite or full. Does not write a full SRD. |
 | **architecting-software** | Designing or reviewing a service's structure against Clean Architecture — keeping the domain independent of frameworks, DB, and providers. |
 | **specifying-features** | Turning a feature into an implementable spec — scope, contract deltas, edge cases, executable acceptance criteria, and an explicit Definition of Done. |
 | **crafting-code** | Writing or changing code to a quality standard — a blocking process gate, four quality pillars, and a simplicity ladder. |

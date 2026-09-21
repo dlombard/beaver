@@ -11,8 +11,11 @@ Use this rubric after drafting or when explicitly reviewing an artifact.
 
 ## Review Questions
 
-- Does the artifact state the problem, users, workflows, scope, non-goals, and assumptions?
+- Does the artifact state the problem, users, workflows, scope, non-goals, and assumptions — without restating an existing PRD as a Product Brief?
 - Is there a Constraint Register, and are load-bearing constraints (scale/load, latency budget, availability, consistency, cost, compliance, platform limits) defined as measurable targets or explicit assumptions rather than omitted? (see `references/constraints-rubric.md`)
+- Is the Requirements Summary an **SRD seed** (see `references/srd-handoff.md`): `SYS-n` system functions traced to the PRD, external interfaces, qualification approach, draft allocation — not a PRD rewrite and not a blank "we'll spec later"?
+- Does the next-phase backlog list **named SRD-section gaps** (interfaces, verification matrix, environment, assurance) rather than a single "write the SRD" row? Are feature-spec and service-structure rows separate, with an owner skill?
+- Was intensity respected — lite did not dump the 10-file set; full did not skip the SRD seed?
 - Is the chosen architecture justified against those constraints (e.g. does the latency budget survive the network round trips it implies; is the CAP/PACELC trade-off stated)?
 - Are the building-block choices per layer present and justified, not a defaulted generic stack? Check compute/runtime, traffic (LB/CDN/gateway), storage/data-store type vs access pattern, caching, async/eventing, communication, coordination, resilience, observability. (see `references/building-blocks.md`)
 - Is each heavyweight block (Kafka, Kubernetes, microservices, extra datastores) tied to a constraint that justifies its complexity, and is any block a constraint demands (cache/CDN, queue, replication, resilience patterns) not missing?
@@ -23,7 +26,7 @@ Use this rubric after drafting or when explicitly reviewing an artifact.
 - Are reliability and failure-mode expectations defined?
 - Are performance budgets included where timing, scale, freshness, or recovery matters?
 - Are SMART criteria specific, measurable, achievable, relevant, and milestone/time-bound?
-- Can the next specification phase proceed without guessing about scope, boundaries, interactions, data, risks, or quality targets?
+- Can the next specification phase proceed without guessing about scope, boundaries, interactions, data, risks, quality targets, or SRD sections?
 - Are later validation needs, manual review points, observability expectations, and operational concerns identified?
 - Are unknowns clearly separated from assumptions?
 
@@ -39,7 +42,7 @@ For AI/LLM systems (see `references/ai-system-design.md`):
 
 ## Output Format
 
-Lead with findings:
+Lead with findings. This table is required — not optional prose.
 
 | Severity | Area | Finding | Required Change |
 | --- | --- | --- | --- |

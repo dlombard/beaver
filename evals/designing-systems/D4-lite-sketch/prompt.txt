@@ -1,0 +1,1 @@
+Sketch a first-pass architecture for a two-city food-delivery app — constraints and the stack, not a full design pack.

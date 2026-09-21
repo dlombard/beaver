@@ -8,7 +8,7 @@ description: >-
 
 ## Operating Rules
 
-Use this skill to turn an idea into a PRD that downstream phases (system design, feature specs, implementation, completion verification) can trace back to. The PRD answers *what* to build, *for whom*, and *how success is judged* — not how it's engineered.
+Use this skill to turn an idea into a PRD that downstream phases (system design, SRD seed, feature specs, implementation, completion verification) can trace back to. The PRD answers *what* to build, *for whom*, and *how success is judged* — not how it's engineered.
 
 Select one mode:
 

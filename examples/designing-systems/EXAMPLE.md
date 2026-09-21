@@ -13,10 +13,12 @@ Run in a fresh session in an empty directory. The skill should trigger on its ow
 
 ## What the skill should do
 
-Turn this into a decision-grade high-level design: elicit the constraints the prompt
-omits, pick building blocks that fit, and produce the artifact set (product brief,
-requirements + **constraint register**, architecture + **building-block table**,
-component inventory, quality attributes, risks, SMART criteria, spec backlog, review).
+Turn this into a **full**-intensity decision-grade high-level design: elicit the
+constraints the prompt omits, pick building blocks that fit, **seed the SRD**, and
+produce the artifact set (product brief because there is no PRD, requirements +
+**constraint register** + **SRD seed**, architecture + **building-block table**,
+component inventory, quality attributes, risks, SMART criteria, spec/SRD backlog,
+review).
 
 ## Reference — what good looks like
 
@@ -33,6 +35,11 @@ component inventory, quality attributes, risks, SMART criteria, spec backlog, re
 - **Consistency split stated**: money = CP; live courier location = ephemeral/AP;
   order state = single-writer with a defined state machine.
 - **Components by ownership** (single-writer per datum: orders, payments, dispatch).
+- **SRD seed**: system functions (`SYS-n`) for place-order, accept, dispatch, live
+  tracking, pay; external interfaces (customer app, restaurant, courier, payments,
+  maps); qualification approach per class; draft allocation to components. Next-phase
+  backlog has **named SRD-section rows** (e.g. payments interface shalls, verification
+  matrix) — not a single "write the SRD" line.
 - **AI kept appropriate**: ETA prediction and dispatch optimization noted as
   ML/optimization *if useful* — **no reflexive LLM chatbot**.
 
@@ -48,6 +55,10 @@ component inventory, quality attributes, risks, SMART criteria, spec backlog, re
 4. **Components by ownership** with single-writer-per-datum.
 5. Handles the **scale ambiguity** (asks ≤5 questions or labels assumptions) and names
    the two-cities→expansion boundary as design-shaping.
+6. **Seeds the SRD**: `SYS-n` shalls + external interfaces + qualification approach,
+   and backlogs **named** full-SRD gaps (not a blank "Full SRD section").
+7. Uses **full** intensity (principal-engineer / "design the system") — the complete
+   artifact set, not the four-file lite sketch.
 
 **Failure signals (any ⇒ fail):**
 - Generic CRUD-app design; no real-time transport for live tracking.
@@ -55,6 +66,8 @@ component inventory, quality attributes, risks, SMART criteria, spec backlog, re
 - No constraint register; or invents precise numbers with no reasoning.
 - Bolts on an LLM/chatbot with no constraint driving it.
 - Silently picks a launch scale without asking or labeling it.
+- Writes a full SRD, or treats feature specs as the SRD; or omits the SRD seed.
+- Drops to **lite** (sketch-only files) on this prompt.
 
 **Grade:** ✅ Pass = all Musts, no signals · ⚠️ Partial = minor gaps only · ❌ Fail =
 any Must missed or any signal present.

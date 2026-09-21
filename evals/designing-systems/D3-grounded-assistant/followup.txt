@@ -1,0 +1,1 @@
+Don't let it invent answers when retrieval is empty — it should refuse with a citation gap instead of guessing. Revise just the grounding/refusal path and anything it touches; don't redo the whole design.

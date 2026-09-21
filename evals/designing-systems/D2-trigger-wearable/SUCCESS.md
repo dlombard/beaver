@@ -19,10 +19,15 @@ conversational memo — no constraint register, no structured design process.
    alarms erode trust), **connectivity** (cellular/BLE-to-phone), **battery/power**,
    **on-device vs cloud** detection, privacy of health data.
 3. Names the pilot→product scope and asks or labels assumptions.
+4. Does **not** answer with questions alone: first-pass Constraint Register (labeled
+   assumptions) + architecture draft alongside any questions. When artifacts are
+   written, the requirements summary includes an **SRD seed** (system functions for
+   detect / alert / notify; interfaces to wearable, caregiver phone, and any cloud
+   path; qualification approach for missed-detection vs false-alarm).
 
 **Failure signals:** does **not** trigger (has to be told to use the skill); or treats
 it as pure hardware/firmware advice with no constraint elicitation; or invents fake
-numbers.
+numbers; or questions with zero design artifacts; or writes a full SRD.
 
 **Key comparison:** the whole point is trigger vs baseline — baseline *cannot* trigger
 (no skill). Success = the skill fires here without prompting, and reframes a "product"

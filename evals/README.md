@@ -17,7 +17,9 @@ Every case checks some of:
 - **Sustaining a conversation** — a `followup.txt` turn ("this element is wrong,
   tweak it") checks the skill revises the *right* element without redoing everything.
 - **Skill-specific behavior** — e.g. does `crafting-code`'s **intensity** (lite vs
-  ultra) actually change what it does?
+  ultra) actually change what it does? Does `designing-systems` **lite** stay a
+  four-file sketch, and does an AI prompt get a first-class retrieval design plus
+  an SRD seed rather than "LLM as a box"?
 
 ## The three run modes
 

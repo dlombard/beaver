@@ -12,32 +12,48 @@ Quality Attributes · Risks and Assumptions · Next-Phase Specification Backlog 
 
 When writing artifacts to disk, write them to `docs/design/` — the standard location
 for this skill collection (`docs/design/` for system design, `docs/adr/` for
-decisions, `docs/specs/` for specs, `docs/api/` for API contracts). If the target
-repo already uses a different documentation layout, conform to it instead. Use these
-files:
+decisions, `docs/specs/` for specs, `docs/srd/` for a later full SRD,
+`docs/api/` for API contracts). If the target repo already uses a different
+documentation layout, conform to it instead.
+
+**full** (default) — these files:
 
 - `index.md`: entry point and links to all artifacts.
-- `product-brief.md`: project framing and product intent.
-- `requirements-summary.md`: high-level functional and non-functional requirements, including the **Constraint Register** (see `references/constraints-rubric.md`).
+- `product-brief.md`: project framing and product intent. **Omit when a PRD already exists** — link that PRD from `index.md` and trace `FR-*` / `NFR-*` instead of restating users/MVP/features.
+- `requirements-summary.md`: Constraint Register + **SRD seed** (see `references/srd-handoff.md` and `references/constraints-rubric.md`).
 - `architecture.md`: system context, components, interactions, data flow, and tradeoffs.
 - `component-inventory.md`: high-level component boundaries and responsibilities.
 - `data-and-ml-flow.md`: data, model, retrieval/grounding, context budget, generation orchestration, evaluation, monitoring, and feedback flow. Required for AI/LLM/assistant systems (see `references/ai-system-design.md`); otherwise mark "Not applicable".
 - `quality-attributes.md`: reliability, security, privacy, observability, performance, scalability, cost, and operability targets.
 - `risks-and-assumptions.md`: assumptions, open questions, risks, and mitigations.
-- `next-phase-spec-backlog.md`: follow-up work for SRD, diagrams, schemas, contracts, detailed specs, and validation plans.
+- `next-phase-spec-backlog.md`: named follow-up for full-SRD sections, feature specs, diagrams, schemas, contracts, and validation plans.
 - `review.md`: final review pass and remaining gaps.
+
+**lite** — only these four (five if AI/LLM):
+
+- `requirements-summary.md` (Constraint Register + SRD seed)
+- `architecture.md` (building-block table + compact component map)
+- `risks-and-assumptions.md`
+- `next-phase-spec-backlog.md`
+- `data-and-ml-flow.md` — required when the system is AI/LLM; omit otherwise
 
 Keep artifact names stable so examples can be compared across runs.
 
 ## Index
 
 - **Project**:
+- **Intensity**: lite / full
 - **Prompt Source**:
+- **Product source**: path to the PRD, or "none — Product Brief derived from brief"
+- **Traces**: `FR-*` / `NFR-*` IDs this design implements (or `none`)
 - **Artifact List**:
 - **Summary**:
 - **Open Questions**:
 
 ## Product Brief
+
+Write this file **only when no product definition exists**. If a PRD is present,
+skip this file; do not restate users, MVP, or features.
 
 - **Project**:
 - **Problem**:
@@ -53,8 +69,16 @@ Keep artifact names stable so examples can be compared across runs.
 
 ## Requirements Summary
 
-- **Functional Requirements**:
-- **Non-Functional Requirements**:
+This file is the **SRD seed**, not a PRD rewrite and not a full SRD
+(see `references/srd-handoff.md`).
+
+- **Traces**: `FR-*` / `NFR-*` (or `none — derived from brief`)
+- **SRD seed — system functions (`SYS-n`)**: system-level shalls, each traced to an `FR-*` or marked `derived`
+- **SRD seed — external interfaces**: actor · interface · unknown the full SRD must close
+- **SRD seed — qualification approach**: per class (function / performance / safety / security / interface) — test, analysis, inspection, or demonstration
+- **SRD seed — draft allocation**: `SYS-n` → component
+- **Functional Requirements** (optional narrative; prefer `SYS-n` shalls above):
+- **Non-Functional Requirements**: do not duplicate — the Constraint Register is the NFR core
 - **Constraint Register** (see `references/constraints-rubric.md`): use the table below
 - **Data Requirements**:
 
@@ -204,18 +228,22 @@ the design, not a single stage.
 
 ## Next-Phase Specification Backlog
 
-Use this table shape.
+One row per **named** gap. Never a single row "write the SRD" or "write the specs".
+SRD rows are section-level remnants of the seed (`references/srd-handoff.md`);
+feature-spec and service-structure rows are separate and name the owner skill.
 
-| Area | Required Follow-Up | Why It Matters | Suggested Artifact | Priority |
-| --- | --- | --- | --- | --- |
-| SRD |  |  | Full SRD section |  |
-| Diagram |  |  | System/context/component diagram |  |
-| API |  |  | API contract |  |
-| Data |  |  | Schema or data dictionary |  |
-| Component |  |  | Detailed component spec |  |
-| Security |  |  | Threat model or permission matrix |  |
-| Performance |  |  | Performance validation plan |  |
-| Operations |  |  | Runbook or deployment plan |  |
+| Area | Required Follow-Up | Why It Matters | Suggested Artifact | Owner | Priority |
+| --- | --- | --- | --- | --- | --- |
+| SRD · interfaces |  |  | `docs/srd/interfaces.md` | full SRD (not this skill) |  |
+| SRD · verification matrix |  |  | `docs/srd/verification-matrix.md` | full SRD (not this skill) |  |
+| Feature spec |  |  | `docs/specs/<id>-<slug>.md` | `specifying-features` |  |
+| Service structure |  |  | `docs/adr/` | `architecting-software` |  |
+| Diagram |  |  | System/context/component diagram | next-phase |  |
+| API |  |  | API contract | `crafting-code` / next-phase |  |
+| Data |  |  | Schema or data dictionary | next-phase |  |
+| Security |  |  | Threat model or permission matrix | next-phase |  |
+| Performance |  |  | Performance validation plan | next-phase |  |
+| Operations |  |  | Runbook or deployment plan | next-phase |  |
 
 ## Review
 

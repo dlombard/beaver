@@ -9,7 +9,7 @@ rather than omitting a section silently.
 - **Feature**:
 - **Status**: draft / in review / approved
 - **Approval**: self-approved | awaiting human sign-off
-- **Traces**: upstream requirement IDs (e.g. FR-3, NFR-1) — "none" if the project has no PRD/design
+- **Traces**: upstream requirement IDs (e.g. FR-3, NFR-1, SYS-4) — "none" if the project has no PRD/design/SRD seed
 - **Last updated**:
 
 ## Summary
