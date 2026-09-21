@@ -12,7 +12,7 @@ Use this skill to turn a feature into a spec precise enough that an agent can im
 
 Select one mode: **spec** (create, default) | **review** | **refine**. One spec per feature, scoped to a shippable slice — split anything bigger.
 
-**Inputs, loosely coupled.** If the project has a product definition (PRD), system design, or spec backlog — check wherever it keeps documentation — consume them and reference their requirement IDs. None is required: a plain feature request plus the codebase is enough; label scope you derived yourself as assumptions.
+**Inputs, loosely coupled.** If the project has a product definition (PRD), system design, SRD seed (`SYS-n` in a requirements summary), or spec backlog — check wherever it keeps documentation — consume them and reference their requirement IDs. None is required: a plain feature request plus the codebase is enough; label scope you derived yourself as assumptions. This skill writes **feature** specs, not a System Requirements Document.
 
 ### Core Directives
 
@@ -20,7 +20,7 @@ Select one mode: **spec** (create, default) | **review** | **refine**. One spec 
 2. **Acceptance criteria are executable.** Each criterion pairs the behavior (Given/When/Then) with the exact check — the curl/CLI command, the test name, or the scripted walkthrough step — and its expected result. "Works correctly" is not a criterion.
 3. **Spec the contract, not the implementation.** Interfaces and API deltas, data changes, error behavior, and limits are the spec's job; class design and algorithms belong to the implementer unless they are genuine constraints. If the project keeps API contracts, state the delta this feature makes to them.
 4. **Cover the unhappy paths.** Invalid input, authorization failures, duplicates/idempotency, concurrency, limits and quotas, dependency failures — each gets a criterion or an explicit out-of-scope line. Happy-path-only specs are the main source of "works, but not as expected".
-5. **Trace both ways.** Reference upstream requirement IDs when they exist; give the spec its own stable ID so commits and tests can reference it.
+5. **Trace both ways.** Reference upstream requirement IDs when they exist (`FR-*`, `NFR-*`, `SYS-*` from an SRD seed); give the spec its own stable ID so commits and tests can reference it.
 6. **Approval is explicit.** The spec header carries an approval mode: `self-approved` (it passed the review workflow below — the default when working autonomously) or `awaiting human sign-off` (when the user wants a checkpoint, or the feature is high-risk / hard to reverse). A spec is never silently "approved". This field is non-negotiable — if the project already has its own spec template (e.g. from a prior design pass) and that template has no approval field, extend it with one rather than dropping the directive to match the existing convention.
 
 ### Do NOT
@@ -56,7 +56,7 @@ Review a spec as an implementability-and-verifiability gate. Lead with findings,
 - an API/interface change with no contract delta
 - Definition of Done missing, or containing undemonstrable items
 - multiple features bundled into one spec
-- upstream requirements that exist but aren't referenced
+- upstream requirements that exist (`FR-*`, `NFR-*`, `SYS-*` from an SRD seed) but aren't referenced
 - implementation prescribed where the implementer should choose
 - a project-specific template followed as-is even though it's missing a required element from `references/spec-template.md` (approval field, acceptance criteria table, Definition of Done)
 

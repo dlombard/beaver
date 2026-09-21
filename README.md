@@ -16,7 +16,7 @@ Claude Code, Codex CLI, Gemini CLI, Cursor, and more.
 | Skill | Stage | What it does |
 |---|---|---|
 | [`defining-products`](skills/defining-products) | 🧭 Scout the valley | Idea → decision-grade PRD: users and problems, a prioritized feature list with stable requirement IDs, product-level acceptance criteria, success metrics, milestones, and explicit non-goals. |
-| [`designing-systems`](skills/designing-systems) | 🌊 Survey the current | Idea → decision-grade high-level design: constraint register, building-block selections, component inventory, data/ML flows, quality attributes, risks, SMART criteria, next-phase spec backlog. Works for software, data/ML/AI, IoT/edge, and cyber-physical systems. |
+| [`designing-systems`](skills/designing-systems) | 🌊 Survey the current | Idea → decision-grade high-level design: constraint register, building-block selections, **SRD seed**, component inventory, data/ML flows, quality attributes, risks, SMART criteria, next-phase spec/SRD backlog. Intensity lite (sketch) or full (default). Works for software, data/ML/AI, IoT/edge, and cyber-physical systems. Does not write a full SRD. |
 | [`architecting-software`](skills/architecting-software) | 🪵 Raise the dam | Design or review a service against **Clean Architecture** — domain independent of frameworks, DB, and providers. |
 | [`specifying-features`](skills/specifying-features) | 📏 Mark the timber | Feature → implementable spec: scope, contract deltas, data changes, edge cases, executable acceptance criteria, and an explicit Definition of Done. |
 | [`crafting-code`](skills/crafting-code) | 🏠 Shape the lodge | A coding standard: a blocking process gate, four quality pillars, and the ponytail simplicity ladder. |

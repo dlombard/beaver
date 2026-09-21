@@ -30,7 +30,8 @@ When this skill triggers, before committing to an architecture, drive the brief 
 whole, establish — or explicitly mark as an assumption / baseline-to-measure — the
 constraints below. Ask the user only for constraints that materially change the
 architecture, within the skill's question budget; otherwise propose a defensible
-default and label it an assumption.
+default and label it an assumption. The Constraint Register **is** the NFR core of
+the SRD seed — do not rewrite it as a second NFR list; see `srd-handoff.md`.
 
 The test for a real constraint (vs. a vanity target): it names **the operation, the
 metric, the target value, the load/condition, and how it will be validated.**
